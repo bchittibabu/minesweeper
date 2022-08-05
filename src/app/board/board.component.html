@@ -1,0 +1,10 @@
+<div class="root" [ngStyle]="{'grid-template-columns': gridColumn, 'grid-template-rows': gridRow}">
+  <div class="box" [ngClass]="{'danger': box.showDanger}" *ngFor="let box of boxArr">
+    <button *ngIf="!box.isOpened" class="button" (click)='open(box)'
+    (contextmenu)="onRightClick(box, $event)">
+      <img class='flag' *ngIf="box.isFlagged"  src="../../assets/flag.png" alt="mine">
+    </button>
+    <div *ngIf="box.noOfMinesAround > 0">{{box.noOfMinesAround}}</div>
+    <img class='mine' *ngIf="box.isMine"  src="../../assets/bomb.gif" alt="mine">
+  </div>
+</div>
